@@ -7,7 +7,42 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
+/* code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+} */
+
+header {
+  background-color: #404040;
+  padding: 1rem;
+}
+
+header a {
+  color: #ffffff;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+main {
+  padding: 1rem;
+}
+
+.estates {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.estate {
+  border: 1px #404040 solid;
+  margin: 1rem;
+}
+
+.estate img {
+  width: 100%;
+  max-width: 400px;
+}
+
+.estate-info {
+  padding: 1rem;
 }
