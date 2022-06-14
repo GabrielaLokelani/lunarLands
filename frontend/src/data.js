@@ -2,6 +2,7 @@ const data = {
     estates: [
         {
             title: 'Hazey Craters',
+            slug: 'Hazey-Craters',
             location: 'Dark Side of the Moon',
             description: 'Adventurous walks along infamous craters on the dark side of the moon',
             price: 500000,
@@ -9,13 +10,16 @@ const data = {
             status: false,
         },
         {
-            title: 'Hazey Craters',
-            location: 'Dark Side of the Moon',
-            description: 'Adventurous walks along infamous craters on the dark side of the moon',
-            price: 500000,
+            title: 'Saturn Sunset',
+            slug: 'Saturn-Sunset',
+            location: 'Lunaaa',
+            description: 'Adventurous walks along a sunset from Saturn',
+            price: 700000,
             image: '/images/saturnSunsets.jpg',
             status: false,
         },
 
-    ]
-}
+    ],
+};
+
+export default data;
