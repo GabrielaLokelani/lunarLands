@@ -14,7 +14,7 @@ const userSchema = mongoose.Schema({
             message: 'Username must be numbers and letters only.'
         },
         unique: [true, "Username already taken!"],
-        minLength: [5, "Username must be at least 5 chars length."],
+        minLength: [3, "Username must be at least 3 chars length."],
         required: [true, 'Username required.']
     },
     password: String,

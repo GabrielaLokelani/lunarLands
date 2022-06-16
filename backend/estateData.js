@@ -1,4 +1,4 @@
-const data = {
+const estateData = {
     estates: [
         {
             title: 'Hazey Craters',
@@ -22,4 +22,4 @@ const data = {
     ],
 };
 
-module.exports = data;
+module.exports = estateData;

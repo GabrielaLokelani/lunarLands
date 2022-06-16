@@ -1,11 +1,11 @@
 const express = require('express');
-const data = require('../data');
 const router = express.Router();
+const estateData = require('../estateData');
 
-/* GET home page. */
-router.get('/estates', (req, res) => {
-  console.log(data.estates)
-  res.send(data.estates)
+/* GET ESTATES LIST */
+router.get('/estates', (req, res, next) => {
+  console.log(estateData.estates)
+  res.send(estateData.estates)
 });
 
 module.exports = router;
