@@ -4,7 +4,7 @@ const data = {
             title: 'Hazey Craters',
             slug: 'Hazey-Craters',
             location: 'Dark Side of the Moon',
-            description: 'Adventurous walks along infamous craters on the dark side of the moon',
+            description: 'Explore infamous craters on the dark side of the moon',
             price: 500000,
             image: '/images/HazeyCraters.jpg',
             status: false,
@@ -22,4 +22,4 @@ const data = {
     ],
 };
 
-export default data;
+module.exports = data;
