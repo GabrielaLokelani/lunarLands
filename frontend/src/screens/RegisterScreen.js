@@ -20,11 +20,11 @@ const RegisterScreen = () => {
             <Form>
                 <TextField color="secondary" label="Username" variant="filled" margin="normal" name='username' fullWidth />
                     <ErrorMessage name="username"/>
-                        <TextField id="filled-basic" label="Password" variant="filled" margin="normal" name='password' fullWidth/>
+                        <TextField id="filled-basic" color="secondary" label="Password" variant="filled" margin="normal" name='password' fullWidth/>
                             <ErrorMessage name="password"/>
-                        <TextField id="filled-basic" label="Re-enter Password" variant="filled" margin="normal" name='rePassword' fullWidth/>
+                        <TextField id="filled-basic" color="secondary" label="Re-enter Password" variant="filled" margin="normal" name='rePassword' fullWidth/>
                         <ErrorMessage name="rePassword"/>
-                    <TextField id="filled-basic" label="Profile Picture" variant="filled" margin="normal" name='profilePic' fullWidth/>
+                    <TextField id="filled-basic" color="secondary" label="Profile Picture" variant="filled" margin="normal" name='profilePic' fullWidth/>
                 <Button variant="contained" color="secondary" startIcon={< PersonAddIcon />} > Register </Button>
             </Form>
             </div>
