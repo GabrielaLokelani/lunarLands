@@ -16,13 +16,13 @@ function App() {
       <header>
         <Link to='/'>Lunar Lands </Link>
 
-        <Link to='/users/register'> Register </Link>
-        <Link to='/users/login'> Login </Link>
+        <Link to='/user/register'> Register </Link>
+        <Link to='/user/login'> Login </Link>
       </header>
       <main>
         <Routes>
-          <Route path='/users/login' element={<LoginScreen/>} />
-          <Route path='/users/register' element={<RegisterScreen/>} />
+          <Route path='/user/login' element={<LoginScreen/>} />
+          <Route path='/user/register' element={<RegisterScreen/>} />
           <Route path='/estate/:slug' element={<EstateScreen/>} />
           <Route path='/' element={<HomeScreen/>} />
         </Routes>
