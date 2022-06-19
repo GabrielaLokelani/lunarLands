@@ -15,22 +15,17 @@ router.get('/list-users', async function(req, res, next) {
 router.get('/register', async function(req, res) {
   console.log("gonna get the register page")
 });
+
 /* POST NEW USER TO MONGO */
 router.post('/register', async (req, res) => {
-
-  //   let password = ''
-//   const salt = bcrypt.genSaltSync(+process.env.SALT);
-//   const hash = bcrypt.hashSync(password, salt);
-//   const newUser = new User({
-//     username: '',
-//     password: hash,
-
   const {username, password, userImageUrl} = req.body;
+    const salt = bcrypt.genSaltSync(+process.env.SALT);
+    const hash = bcrypt.hashSync(password, salt);
   User.findOne({username:username}, (err, user) => {
     if (user) {
       res.send({message: 'uesrname already exists'})
     } else {
-    const user = new User({username, password, userImageUrl})
+    const user = new User({username: username, password: hash, userImageUrl: userImageUrl})
       user.save(err => {
         if (err) {
           res.send(err)
@@ -72,24 +67,3 @@ router.get('/logout', function(req, res) {
 });
 
 module.exports = router;
-
-/* POST NEW USER TO MONGO */
-// router.post('/register', async function(req, res) {
-//   let password = ''
-//   const salt = bcrypt.genSaltSync(+process.env.SALT);
-//   const hash = bcrypt.hashSync(password, salt);
-//   const newUser = new User({
-//     username: '',
-//     password: hash,
-//     userImageUrl: '',
-//     cart: [],
-//     likedEstates: []
-//   })
-//   newUser.save((err, joy) => {
-//     if (err) {
-//       console.log(err)
-//     } else {
-//       console.log(`ADDED USER TO DATABASE:\n${joy}`)
-//     };
-//   });
-// });
