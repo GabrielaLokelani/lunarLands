@@ -20,15 +20,15 @@ const userSchema = mongoose.Schema({
     password: String,
     userImageUrl: {
         type: String,
-        validate: {
-            validator: (imageUrl) => {
-                const regex = /^https?:\/\//
-                const match = regex.test(imageUrl)
-                return match
-            },
-            message: 'Image url must begin with http:// or https://'
-        },
-        required: [false, 'Image url can be set in user settings.']
+        // validate: {
+        //     validator: (imageUrl) => {
+        //         const regex = /^https?:\/\//
+        //         const match = regex.test(imageUrl)
+        //         return match
+        //     },
+        //     message: 'Image url must begin with http:// or https://'
+        // },
+        // required: [false, 'Image url can be set in user settings.']
     },
     cart: [{type: Schema.Types.ObjectId, ref: 'Estate'}],
     likedEstates: [{type: Schema.Types.ObjectId, ref: 'Estate'}]
