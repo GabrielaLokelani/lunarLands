@@ -4,7 +4,6 @@ const estateData = require('../estateData');
 
 /* GET ESTATES LIST */
 router.get('/estates', (req, res, next) => {
-  console.log(estateData.estates)
   res.send(estateData.estates)
 });
 

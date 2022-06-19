@@ -17,7 +17,14 @@ router.get('/register', async function(req, res) {
 });
 /* POST NEW USER TO MONGO */
 router.post('/register', async (req, res) => {
-  console.log(req.body);
+
+  //   let password = ''
+//   const salt = bcrypt.genSaltSync(+process.env.SALT);
+//   const hash = bcrypt.hashSync(password, salt);
+//   const newUser = new User({
+//     username: '',
+//     password: hash,
+
   const {username, password, userImageUrl} = req.body;
   User.findOne({username:username}, (err, user) => {
     if (user) {
@@ -36,10 +43,8 @@ router.post('/register', async (req, res) => {
 })
 
 /* GET USER LOGIN */
-router.get('/login', async function(req, res) {
-  // TODO: pass in username and password input
-  let username = 'Jesse'
-  let password = '1234'
+router.post('/login', async function(req, res) {
+  const {username, password} = req.body
 
   const user = await User.findOne({username: username});
 
@@ -67,3 +72,24 @@ router.get('/logout', function(req, res) {
 });
 
 module.exports = router;
+
+/* POST NEW USER TO MONGO */
+// router.post('/register', async function(req, res) {
+//   let password = ''
+//   const salt = bcrypt.genSaltSync(+process.env.SALT);
+//   const hash = bcrypt.hashSync(password, salt);
+//   const newUser = new User({
+//     username: '',
+//     password: hash,
+//     userImageUrl: '',
+//     cart: [],
+//     likedEstates: []
+//   })
+//   newUser.save((err, joy) => {
+//     if (err) {
+//       console.log(err)
+//     } else {
+//       console.log(`ADDED USER TO DATABASE:\n${joy}`)
+//     };
+//   });
+// });
