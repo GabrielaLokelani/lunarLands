@@ -17,20 +17,26 @@ const LoginScreen = ({setLoggedIn}) => {
     }
 
     const handleSubmit = (e) => {
-        axios.post('http://localhost:2600/user/login', user).then(res => {console.log(res.data.user)
+        axios.post('http://localhost:2600/user/login', user, {
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            withCredentials: true,
+            sameSite: 'none'
+        }).then(res => {console.log(res.data.user)
             setLoggedIn(res.data.user)
             navigate('/')
         })
-        e.preventDefault();    
+        e.preventDefault();
     }
 
     return ( 
         <div>
-             <TextField onChange={handleChange} value={user.username} color="secondary" label="Username" variant="filled" margin="normal" name='username' fullWidth />
-             <TextField  onChange={handleChange} value={user.password} color="secondary" label="Password" variant="filled" margin="normal" name='password' fullWidth/>
-             <Button onClick={handleSubmit} type='submit' variant="contained" color="secondary" startIcon={< AccountBoxIcon />} > Login </Button>
+            <TextField onChange={handleChange} value={user.username} color="secondary" label="Username" variant="filled" margin="normal" name='username' fullWidth />
+            <TextField  onChange={handleChange} value={user.password} color="secondary" label="Password" variant="filled" margin="normal" name='password' fullWidth/>
+            <Button onClick={handleSubmit} type='submit' variant="contained" color="secondary" startIcon={< AccountBoxIcon />} > Login </Button>
         </div>
-     );
+    );
 }
- 
+
 export default LoginScreen;
