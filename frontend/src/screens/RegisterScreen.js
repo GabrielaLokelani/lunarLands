@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import { TextField, Button} from '@mui/material';
 import PersonAddIcon from '@mui/icons-material/PersonAdd';
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 
 const RegisterScreen = () => {
+    const navigate = useNavigate()
     const [user, setUser] = useState({
         username: '',
         password: '',
@@ -21,14 +23,16 @@ const RegisterScreen = () => {
         if (username && password && userImageUrl) {
             axios
             .post('http://localhost:2600/user/register', user)
-            .then(res => console.log("post respones to registration", res))
+            .then(res => {
+                console.log("post respones to registration", res)
+                navigate('/user/login')
+            })
             .catch(err => {
               console.error(err);
             });
         } else {
             alert('invalid username or password');
         }
-
         e.preventDefault();
     }
     

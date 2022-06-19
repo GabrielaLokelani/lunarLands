@@ -8,7 +8,7 @@ const LoginScreen = ({setLoggedIn}) => {
     const navigate = useNavigate()
     const [user, setUser] = useState({
         username: '',
-        password: ''
+        password: '',
     })
 
     const handleChange = e => {
@@ -17,13 +17,11 @@ const LoginScreen = ({setLoggedIn}) => {
     }
 
     const handleSubmit = (e) => {
-        axios.post('http://localhost:2600/user/login', user)
-        .then(res => {
-            console.log(res.data.user)
+        axios.post('http://localhost:2600/user/login', user).then(res => {console.log(res.data.user)
             setLoggedIn(res.data.user)
             navigate('/')
         })
-        e.preventDefault();
+        e.preventDefault();    
     }
 
     return ( 

@@ -7,6 +7,7 @@ import EstateScreen from './screens/EstateSceen';
 import HomeScreen from './screens/HomeScreen';
 import RegisterScreen from './screens/RegisterScreen';
 import LoginScreen from './screens/LoginScreen';
+import { useState } from 'react';
 
 
 
@@ -18,6 +19,8 @@ const darkTheme = createTheme({
 });
 
 function App() {
+
+  const [user, setLoggedIn] = useState({})
 
   return (
     <div className="App">
@@ -33,7 +36,7 @@ function App() {
       </header>
       <main>
         <Routes>
-          <Route path='/user/login' element={<LoginScreen/>} />
+          <Route path='/user/login' element={<LoginScreen setLoggedIn={setLoggedIn}/>}/>
           <Route path='/user/register' element={<RegisterScreen/>} />
           <Route path='/estate/:slug' element={<EstateScreen/>} />
           <Route path='/' element={<HomeScreen/>} />
