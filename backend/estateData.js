@@ -2,7 +2,6 @@ const estateData = {
     estates: [
         {
             title: 'Hazey Craters',
-            _id: 'Hazey-Craters',
             location: 'Dark Side of the Moon',
             description: 'Explore infamous craters on the dark side of the moon',
             price: 500000,
@@ -11,16 +10,14 @@ const estateData = {
         },
         {
             title: 'Strawberry Moon Condos',
-            _id: 'Strawberry-Moon-Condos',
             location: 'Nubium',
             description: 'Enjoy Breathtaking views from futuristic condos',
-            price: 300000,
+            price: 450000,
             image: 'https://i.pinimg.com/originals/84/5b/ec/845bec51d09688387f289e33dc9e0f76.jpg',
             status: false,
         },
         {
             title: 'Mystic Crator',
-            _id: 'Mystic-Crator',
             location: 'Nectaris',
             description: 'Explore the mystical crators in the wonderous location of Nectaris',
             price: 350000,
@@ -29,7 +26,6 @@ const estateData = {
         },
         {
             title: 'Saturn Sunset',
-            _id: 'Saturn-Sunset',
             location: 'Lunä',
             description: 'Adventurous walks along a sunset from Saturn',
             price: 720000,
@@ -38,7 +34,6 @@ const estateData = {
         },
         {
             title: 'MoonRock Peaks',
-            _id: 'MoonRock-Peaks',
             location: 'Tranquillitatis',
             description: 'Feel the tranquill nature among the highest peaks in the galaxy',
             price: 680000,
@@ -47,7 +42,6 @@ const estateData = {
         },
         {
             title: 'Lunar City',
-            _id: 'Lunar-City',
             location: 'Palus',
             description: 'Take in the lively city at the heart of the Moon',
             price: 700000,
@@ -56,7 +50,6 @@ const estateData = {
         },
         {
             title: 'Neon Pod',
-            _id: 'Neon-Pod',
             location: 'Procellarum',
             description: 'Be apart of the city in a modest but cozy futuristic pod',
             price: 20000,
@@ -65,20 +58,26 @@ const estateData = {
         },
         {
             title: 'Pyramid Scapes',
-            _id: 'Pyramid-Scapes',
             location: 'Serenitatis',
             description: 'Break free from the hustle and bustle, making your escape, Pyramid Scapes',
             price: 400750,
             image: 'https://c4.wallpaperflare.com/wallpaper/365/890/437/fantasy-city-moon-pyramid-pyramidship-wallpaper-preview.jpg',
-            status: false,
+            status: true,
         },
         {
             title: 'Aurora Heights',
-            _id: 'Aurora-Heights',
             location: 'Imbrium',
             description: 'Working and living in the city of Imbrium will be just as comfortable in Aurora Heights',
             price: 350000,
             image: 'https://cdn.pixabay.com/photo/2020/06/20/04/33/space-5319624_1280.jpg',
+            status: false,
+        },
+        {
+            title: 'Polar Place',
+            location: 'Cognitum',
+            description: 'Get to know the coolest place on the moon',
+            price: 50500,
+            image: 'https://i.pinimg.com/564x/97/1e/08/971e08b419657132368c0a86740c0be2.jpg',
             status: false,
         },
 
