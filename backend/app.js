@@ -10,6 +10,7 @@ const bodyParser = require('body-parser')
 const indexRouter = require('./routes/index');
 const userRouter = require('./routes/user');
 const apiRouter = require('./routes/api')
+const estateRouter = require('./routes/estateRoutes');
 
 // HIDE YOUR MONGO CONNECTION VARIABLES
 
@@ -47,5 +48,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/user', userRouter);
 app.use('/api', apiRouter);
+app.use('/api/estates', estateRouter);
 
 module.exports = app;
