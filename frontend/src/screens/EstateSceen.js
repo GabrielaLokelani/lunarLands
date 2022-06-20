@@ -28,7 +28,7 @@ const EstateScreen = () => {
             <Col md={3}>
                 <ListGroup variant="flush">
                 <ListGroup.Item>
-                    <h1>{estate.title}</h1>
+                <h1>{ estate.title }</h1>
                 </ListGroup.Item>
                 <ListGroup.Item>
                     <h3>{estate.location}</h3>

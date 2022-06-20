@@ -36,6 +36,7 @@ function App() {
           <Nav className="me-auto">
           <Nav.Link href='/user/register'> Register </Nav.Link>
           <Nav.Link href='/user/login'> Login </Nav.Link>
+          <Nav.Link href='/user/logout'> Logout </Nav.Link>
           </Nav>
           </Container>
         </Navbar>
@@ -43,6 +44,7 @@ function App() {
       <main>
       <Container className='mt-3'>
         <Routes>
+          <Route path='/user/logout' />
           <Route path='/user/login' element={<LoginScreen setLoggedIn={setLoggedIn}/>}/>
           <Route path='/user/register' element={<RegisterScreen/>} />
           <Route path='/estate/:_id' element={<EstateScreen/>} />
