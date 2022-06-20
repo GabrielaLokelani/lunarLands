@@ -9,7 +9,19 @@ import EstateScreen from './screens/EstateSceen';
 import HomeScreen from './screens/HomeScreen';
 import RegisterScreen from './screens/RegisterScreen';
 import LoginScreen from './screens/LoginScreen';
-import { useState } from 'react';
+import { useContext, useState } from 'react';
+import { Store } from './Store';
+import { Link } from 'react-router-dom';
+import Badge from '@mui/material/Badge';
+import { styled } from '@mui/material/styles';
+import IconButton from '@mui/material/IconButton';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+
+const StyledBadge = styled(Badge)(({ theme }) => ({
+  '& .MuiBadge-badge': {
+    border: `2px solid ${theme.palette.background.paper}`,
+  },
+}));
 
 const darkTheme = createTheme({
   palette: {
@@ -20,6 +32,8 @@ const darkTheme = createTheme({
 function App() {
 
   const [user, setLoggedIn] = useState({})
+  const { state } = useContext(Store);
+  const { cart } = state;
 
   return (
     <div className="App">
@@ -37,6 +51,17 @@ function App() {
           <Nav.Link href='/user/register'> Register </Nav.Link>
           <Nav.Link href='/user/login'> Login </Nav.Link>
           <Nav.Link href='/user/logout'> Logout </Nav.Link>
+          <Nav className="me-auto">
+                <Link to="/cart" className="nav-link">
+                  {cart.cartItems.length > 0 && (
+                  <IconButton aria-label="cart">
+                  <Badge badgeContent={cart.cartItems.length} color="secondary">
+                    <ShoppingCartIcon />
+                  </Badge>
+                  </IconButton>
+                  )}
+                </Link>
+              </Nav>
           </Nav>
           </Container>
         </Navbar>
