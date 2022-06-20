@@ -31,7 +31,7 @@ const LoginScreen = ({setLoggedIn}) => {
     }
 
     return ( 
-        <div>
+        <div className="login-screen">
             <TextField onChange={handleChange} value={user.username} color="secondary" label="Username" variant="filled" margin="normal" name='username' fullWidth />
             <TextField  onChange={handleChange} value={user.password} color="secondary" label="Password" variant="filled" margin="normal" name='password' fullWidth/>
             <Button onClick={handleSubmit} type='submit' variant="contained" color="secondary" startIcon={< AccountBoxIcon />} > Login </Button>
