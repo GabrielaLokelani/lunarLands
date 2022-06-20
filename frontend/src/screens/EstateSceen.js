@@ -4,19 +4,55 @@ import { Card, Col, ListGroup, Row } from "react-bootstrap";
 import Badge from '@mui/material/Badge';
 import { useParams } from "react-router-dom";
 import { Button } from "@mui/material";
+import { useReducer } from "react";
+import { useContext } from "react";
+import { Store } from "../Store";
+
+
+const reducer = (state, action) => {
+    switch (action.type) {
+      case 'FETCH_REQUEST':
+        return { ...state, loading: true };
+      case 'FETCH_SUCCESS':
+        return { ...state, estate: action.payload, loading: false };
+      case 'FETCH_FAIL':
+        return { ...state, loading: false, error: action.payload };
+      default:
+        return state;
+    }
+  };
 
 const EstateScreen = () => {
     const params = useParams();
     const { _id } = params;
 
-    const [estate, setEstate] = useState([]);
+    const [{ loading, error, estate }, dispatch] =
+    useReducer(reducer, {
+        estate: [],
+        loading: true,
+        error: '',
+    });
+
+    // const [estate, setEstate] = useState([]);
     useEffect(()=> {
         const fetchData = async () => {
+            dispatch({ type: 'FETCH_REQUEST' });
+            try {
             const result = await axios.get(`http://localhost:2600/api/estates/_id/${_id}`);
-            setEstate(result.data);
+            dispatch({ type: 'FETCH_SUCCESS', payload: result.data });
+        } catch (err) {
+          dispatch({ type: 'FETCH_FAIL', payload: error });
+        }
+            // setEstate(result.data);
         };
         fetchData();
     }, [_id]);
+
+
+    const {state, dispatch: ctxDispatch} = useContext(Store);
+    const addPurchaseHandler = () => {
+        ctxDispatch({type:'CART_ADD_ITEM', payload: {...estate, quantity: 1} })
+    }
     
     return ( 
     <div>
@@ -59,7 +95,7 @@ const EstateScreen = () => {
                 {estate.status === false && (
                     <ListGroup.Item>
                         <div className='d-grid'>
-                            <Button variant="contained">
+                            <Button onClick={addPurchaseHandler} variant="contained">
                                 Purchase
                             </Button>
                         </div>
