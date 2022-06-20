@@ -12,19 +12,12 @@ body {
     monospace;
 } */
 
-header {
-  background-color: #404040;
-  padding: 1rem;
-}
-
-header a {
-  color: #ffffff;
-  font-weight: bold;
-  text-decoration: none;
+.site-container {
+  min-height: 100vh;
 }
 
 main {
-  padding: 1rem;
+  flex: 1;
 }
 
 .estates {
@@ -36,6 +29,7 @@ main {
 .estate {
   border: 1px #404040 solid;
   margin: 1rem;
+  color: black;
 }
 
 .estate img {
@@ -57,4 +51,8 @@ main {
   background-position: center;
   width: 100%;
   height: 100%;
+}
+
+.img-large {
+  max-width: 100%;
 }

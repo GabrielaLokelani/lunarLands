@@ -2,7 +2,6 @@ const express = require('express');
 const router = express.Router();
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-const cookie = require('cookie');
 const User = require('../models/User');
 
 /* GET USER LIST FROM MONGO*/
@@ -52,10 +51,9 @@ router.post('/login', async function(req, res) {
 
   if (match) {
     const payload = { id: user._id, username: username };
-    const token = jwt.sign(payload, process.env.JWT_SECRET, {expiresIn: '6h'});
-
-    console.log("JWT SIGNED", token, payload)
+    const token = jwt.sign(payload, process.env.JWT_SECRET, {expiresIn: '12h'});
     res.cookie('access_token', token);
+    console.log("JWT SIGNED", token, payload)
   };
   res.json()
 })

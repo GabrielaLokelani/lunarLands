@@ -7,7 +7,7 @@ const estateSchema = mongoose.Schema({
     description: String,
     price: Number,
     image: String,
-    status: true,
+    status: Booleen,
 })
 
 module.exports = mongoose.model('Estate', estateSchema)
