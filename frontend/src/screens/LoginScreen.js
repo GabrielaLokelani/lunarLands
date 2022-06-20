@@ -11,7 +11,7 @@ const LoginScreen = ({setLoggedIn}) => {
         password: '',
     })
 
-    const handleChange = e => {
+    const handleChange = (e) => {
         const {name, value} = e.target;
         setUser({ ...user, [name]: value })
     }

@@ -29,7 +29,11 @@ mongoose.connect(process.env.DB_URI, {
 
 var app = express();
 
-app.use(cors());
+app.use(cors({
+  origin: 'http://localhost:3000',
+  methods: ['POST', 'PUT', 'GET', 'OPTIONS', 'HEAD'],
+  credentials: true
+}));
 
 app.use(logger('dev'));
 app.use(express.json());

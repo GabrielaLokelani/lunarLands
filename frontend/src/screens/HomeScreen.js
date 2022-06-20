@@ -1,7 +1,8 @@
 
-import { Link } from 'react-router-dom'
 import axios from 'axios';
 import { useEffect, useState } from 'react';
+import {Row, Col} from 'react-bootstrap';
+import Estate from '../components/Estate';
 
 const HomeScreen = () => {
     const [estates, setEstates] = useState([]);
@@ -14,31 +15,15 @@ const HomeScreen = () => {
     }, []);
     return ( 
         <div>
-        <h1>look at allll these lunar estates</h1>
         <h1>Featured Estates</h1> 
         <div className='estates'>
+          <Row>
         {estates.map((estate) => (
-        <div className='estate' key={estate.slug}>
-          <Link to={`/estate/${estate.slug}`}>
-            <img src={estate.image} alt={estate.title} /> 
-          </Link>
-            <div className="estate-info">
-            <Link to={`/estate/${estate.slug}`}>
-              <p> {estate.title} </p>
-            </Link>
-            <p> 
-            {estate.location}
-            </p>
-            <p> 
-            {estate.description}
-            </p>
-            <p> 
-            <strong>${estate.price}</strong>
-            </p>
-            <button>Purchase</button>
-            </div>
-            </div>
+        <Col  key={estate._id} sm={6} md={4} lg={3} className='mb-3'>
+          <Estate estate={estate}></Estate>
+        </Col>
         ))}
+        </Row>
         </div>
         </div> 
      );
