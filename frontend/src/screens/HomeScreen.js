@@ -1,8 +1,6 @@
 
-import { Link } from 'react-router-dom'
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import { Button, Grid} from '@mui/material';
 import {Row, Col} from 'react-bootstrap';
 import Estate from '../components/Estate';
 
