@@ -13,15 +13,17 @@ import { useContext, useState } from 'react';
 import { Store } from './Store';
 import { Link } from 'react-router-dom';
 import Badge from '@mui/material/Badge';
-import { styled } from '@mui/material/styles';
+// import { styled } from '@mui/material/styles';
 import IconButton from '@mui/material/IconButton';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import axios from "axios";
 
-const StyledBadge = styled(Badge)(({ theme }) => ({
-  '& .MuiBadge-badge': {
-    border: `2px solid ${theme.palette.background.paper}`,
-  },
-}));
+
+// const StyledBadge = styled(Badge)(({ theme }) => ({
+//   '& .MuiBadge-badge': {
+//     border: `2px solid ${theme.palette.background.paper}`,
+//   },
+// }));
 
 const darkTheme = createTheme({
   palette: {
@@ -34,6 +36,17 @@ function App() {
   const [user, setLoggedIn] = useState({})
   const { state } = useContext(Store);
   const { cart } = state;
+
+  const handleLogout = (e) => {
+    axios.get('http://localhost:2600/user/logout', {
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            withCredentials: true,
+            sameSite: 'none'
+        })
+        e.preventDefault();
+  }
 
   return (
     <div className="App">
@@ -50,7 +63,7 @@ function App() {
           <Nav className="me-auto">
           <Nav.Link href='/user/register'> Register </Nav.Link>
           <Nav.Link href='/user/login'> Login </Nav.Link>
-          <Nav.Link href='/user/logout'> Logout </Nav.Link>
+          <Nav.Link onClick={handleLogout}> Logout </Nav.Link>
           <Nav className="me-auto">
                 <Link to="/cart" className="nav-link">
                   {cart.cartItems.length > 0 && (
